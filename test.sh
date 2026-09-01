@@ -2,7 +2,7 @@
 
 echo "Running test..."
 
-if [ -f ci-test.txt ]; then
+if [ -f wrong-file.txt ]; then
     echo "Test Passed"
     exit 0
 else
