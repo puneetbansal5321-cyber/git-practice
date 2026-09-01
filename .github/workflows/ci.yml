@@ -23,3 +23,6 @@ jobs:
 
       - name: Run real test
         run: ./test.sh
+
+      - name: Deploy application
+        run: ./deploy.sh
