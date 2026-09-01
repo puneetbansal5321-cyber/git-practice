@@ -18,5 +18,8 @@ jobs:
       - name: run test
         run: echo "GitHub Action is Working"
 
+      - name: Build application
+        run: ./build.sh
+
       - name: Run real test
         run: ./test.sh
