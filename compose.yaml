@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./website:/usr/share/nginx/html:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+
+  backend:
+    build: ./backend
+    expose:
+      - "5000"
+    environment:
+      APP_ENV: ${APP_ENV}
