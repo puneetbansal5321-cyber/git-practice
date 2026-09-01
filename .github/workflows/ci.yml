@@ -1,4 +1,4 @@
-name: CI Practice
+name: Docker CI
 
 on:
   push:
@@ -8,24 +8,19 @@ on:
     branches:
       - main
 
-
 jobs:
-  test:
+  test-and-build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: check out
+      - name: Checkout code
         uses: actions/checkout@v4
 
-
-      - name: run test
-        run: echo "GitHub Action is Working"
+      - name: Run test
+        run: ./test.sh
 
       - name: Build application
         run: ./build.sh
 
-      - name: Run real test
-        run: ./test.sh
-
-      - name: Deploy application
-        run: ./deploy.sh
+      - name: Build Docker image
+        run: docker build -t git-clone-test-web:ci .
