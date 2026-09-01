@@ -17,3 +17,6 @@ jobs:
 
       - name: run test
         run: echo "GitHub Action is Working"
+
+      - name: Run real test
+        run: ./test.sh
