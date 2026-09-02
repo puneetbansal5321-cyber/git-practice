@@ -1,10 +1,13 @@
 #!/bin/bash
 
-echo "Starting Deployment..."
+set -e
 
-mkdir -p deployment
+echo "Starting Kubernetes Deployment..."
 
-cp -r build/* deployment/
+kubectl apply -f k8s/web-deployment.yaml
+kubectl apply -f k8s/web-service.yaml
+
+echo "Waiting for rollout..."
+kubectl rollout status deployment/web
 
 echo "Deployment Completed Successfully"
-
