@@ -23,9 +23,9 @@ jobs:
         run: ./build.sh
 
       - name: Validate Kubernetes manifests
-        run: |
-          kubectl apply --dry-run=client --validate=false -f k8s/web-deployment.yaml
-          kubectl apply --dry-run=client --validate=false -f k8s/web-service.yaml
+        uses: docker://ghcr.io/yannh/kubeconform:latest
+        with:
+          args: "-strict k8s/web-deployment.yaml k8s/web-service.yaml"
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
