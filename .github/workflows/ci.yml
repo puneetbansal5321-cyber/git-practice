@@ -10,11 +10,17 @@ on:
 
 jobs:
   test-and-build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Show runner information
+        run: |
+          echo "Running on self-hosted runner"
+          hostname
+          uname -a
 
       - name: Run test
         run: ./test.sh
