@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: puneet9652/git-clone-test-web:v2
+          image: puneet9652/git-clone-test-web:v4
           imagePullPolicy: Always
           ports:
             - containerPort: 80
