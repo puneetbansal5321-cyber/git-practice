@@ -44,3 +44,6 @@ jobs:
 
       - name: Push Docker image
         run: docker push puneet9652/git-clone-test-web:latest
+
+      - name: Deploy to Kubernetes
+        run: ./deploy.sh
